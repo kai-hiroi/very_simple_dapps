@@ -21,7 +21,7 @@ window.onload = function () {
 
   //1.00-beta.36と表示されるのが正しい
   console.log("reader.js_is_checking_web3.js_version..." + Web3.version);
-  console.log(web3.getStorageAt(Address));
+  console.log(web3.eth.getStorageAt(Address));
 
 
   mycontract.methods.get3().call().then((fromblockchain1) => {
