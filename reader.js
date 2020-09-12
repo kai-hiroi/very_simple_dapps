@@ -1,52 +1,9 @@
 //---------------環境設定-----------------
 //remixのボタンを押して取得したコントラクトアドレスを貼り付け
-const Address = "0x300359Af32c7964E6DDafe79C12E3024dc7539C7";
+const Address = "0x593cC81f554C67004ff6f92669089608eb17d81e";
 
 //remixのボタンを押して取得したABIを貼り付け
-const ABI = [
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "n",
-        "type": "uint256"
-      }
-    ],
-    "name": "setnumber",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "get3",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "getnumber",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  }
-]
+const ABI = [{ "type": "function", "stateMutability": "nonpayable", "payable": false, "outputs": [], "name": "setNumber", "inputs": [{ "type": "uint8", "name": "_answer", "internalType": "uint8" }], "constant": false }, { "type": "function", "stateMutability": "payable", "payable": true, "outputs": [], "name": "setMoney", "inputs": [], "constant": false }, { "type": "function", "stateMutability": "nonpayable", "payable": false, "outputs": [], "name": "TakeMoney", "inputs": [{ "type": "int256", "name": "_myanswer", "internalType": "int256" }], "constant": false }]
 
 //metamask利用許可ダイアログを出す
 ethereum.enable();
@@ -74,5 +31,8 @@ window.onload = function () {
     //上記はコントラクト上のgetnumber関数を呼び出すための定型句です。呼び出し結果は「fromblockchain2」で利用可
     document.getElementById("idn").innerHTML = fromblockchain2;
   });
+  mycontract.methods.getStorageAt().call().then((fromblockchain3) => {
+    //上記はコントラクト上のgetnumber関数を呼び出すための定型句です。呼び出し結果は「fromblockchain3」で利用可
+    document.getElementById("storageAt").innerHTML = fromblockchain3;
+  });
 }
-
