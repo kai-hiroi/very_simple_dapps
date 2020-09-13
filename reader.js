@@ -14,7 +14,7 @@ ethereum.enable();
 
 window.onload = function () {
 
-  const getStorage = web3.eth.getStorageAt(Address, 0);
+  const getStorage = new Web3(web3.eth.getStorageAt(Address, 0));
   console.log(getStorage);
 
   //metamaskの準備
