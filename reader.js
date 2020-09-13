@@ -14,6 +14,8 @@ ethereum.enable();
 
 window.onload = function () {
 
+  console.log(web3.eth.getStorageAt(Address, 0)).then(console.log);
+
   //metamaskの準備
   web3js = new Web3(web3.currentProvider);
   //スマートコントラクト読み込み
@@ -21,7 +23,6 @@ window.onload = function () {
 
   //1.00-beta.36と表示されるのが正しい
   console.log("reader.js_is_checking_web3.js_version..." + Web3.version);
-  console.log(mycontract.getStorageAt());
 
 
   mycontract.methods.get3().call().then((fromblockchain1) => {
